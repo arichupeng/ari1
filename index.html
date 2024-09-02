@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Malam Putri!</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #3a6186, #89253e);
+            color: #fff;
+            text-align: center;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        h1 {
+            font-size: 3em;
+            margin: 0;
+            animation: fadeIn 2s ease-in-out;
+        }
+        p {
+            font-size: 1.5em;
+            margin: 10px 0 20px;
+            animation: fadeIn 3s ease-in-out;
+        }
+        .glow {
+            text-shadow: 0 0 10px #f39c12, 0 0 20px #f39c12, 0 0 30px #f39c12, 0 0 40px #e74c3c;
+            font-size: 3.5em;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 25px;
+            background-color: #f39c12;
+            color: #fff;
+            cursor: pointer;
+            animation: fadeIn 4s ease-in-out;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #e74c3c;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .slide-message {
+            font-size: 1.8em;
+            color: #f39c12;
+            margin-top: 20px;
+            animation: slideIn 1s forwards;
+        }
+        .heart {
+            font-size: 4em;
+            color: red;
+            margin-top: 10px;
+            animation: fadeIn 1.5s forwards;
+        }
+        @keyframes slideIn {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        .slide {
+            display: none;
+        }
+        .active-slide {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Slide Pertama -->
+    <div id="slide-1" class="slide active-slide">
+        <h1 class="glow">Selamat Malam Putri!</h1>
+        <button onclick="nextSlide(2)">Please Buka Tombol di Bawah Ini</button>
+    </div>
+
+    <!-- Slide Kedua -->
+    <div id="slide-2" class="slide">
+        <p class="slide-message">Keberhasilan tak akan bisa diperoleh begitu saja. Diperlukan usaha, doa, restu, serta dukungan dari orang tua, begitu juga mendapatkanmu...</p>
+        <button onclick="nextSlide(3)">Buka Lagi</button>
+    </div>
+
+    <!-- Slide Ketiga -->
+    <div id="slide-3" class="slide">
+        <p class="slide-message">Akan selalu berjuang untuk mendapatkan kepercayaanmu</p>
+        <div id="heart" class="heart">❤️</div>
+    </div>
+
+    <script>
+        function nextSlide(slideNumber) {
+            // Menyembunyikan semua slide
+            var slides = document.querySelectorAll('.slide');
+            slides.forEach(function(slide) {
+                slide.classList.remove('active-slide');
+            });
+
+            // Menampilkan slide yang diinginkan
+            document.getElementById('slide-' + slideNumber).classList.add('active-slide');
+        }
+    </script>
+
+</body>
+</html>
